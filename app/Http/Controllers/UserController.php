@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Env;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\ActivityLog;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserStoreRequest;
 
@@ -15,8 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $env = Env::serve();
         $data = User::all();
-        return view("user.index", compact("data"));
+        return view("user.index", compact("env", "data"));
     }
 
     /**
@@ -24,8 +26,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $env = Env::serve();
         $role = Role::select(["id", "name"])->orderBy("id", "asc")->get();
-        return view("user.create", compact("role"));
+        return view("user.create", compact("env", "role"));
     }
 
     /**
@@ -35,16 +38,18 @@ class UserController extends Controller
     {
         $request->request->add(["password" => bcrypt($request->password)]);
         User::create($request->all());
-        ActivityLog::write("Create User", NULL);
-        return redirect()->route("user.index")->with("success", "Data has been created !");
+        Activity::membuat("user", $request->name);
+        return redirect()->route("user.index")->with("success", "User berhasil dibuat");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $env = Env::serve();
+        $data = User::whereId($id)->get()->last();
+        return view("user.show", compact("env", "data"));
     }
 
     /**
@@ -52,9 +57,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = User::whereId($id)->get()->last();
+        $env = Env::serve();
         $role = Role::select(["id", "name"])->orderBy("id", "asc")->get();
-        return view("user.edit", compact("data", "role"));
+        $data = User::whereId($id)->get()->last();
+        return view("user.show", compact("env", "role", "data"));
     }
 
     /**
@@ -62,9 +68,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Activity::mengubah("user", "name", "users", $id);
         User::whereId($id)->update($request->except(["_token", "_method"]));
-        ActivityLog::write("Update User", NULL);
-        return redirect()->route("user.index")->with("success", "Data has been updated !");
+        return redirect()->route("user.index")->with("success", "User berhasil dirubah");
     }
 
     /**
@@ -72,8 +78,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        ActivityLog::write("Delete User", NULL);
+        Activity::menghapus("user", "name", "users", $id);
         User::whereId($id)->delete();
-        return redirect()->route("user.index")->with("success", "Data has been deleted !");
+        return redirect()->route("user.index")->with("success", "User berhasil dihapus");
     }
 }

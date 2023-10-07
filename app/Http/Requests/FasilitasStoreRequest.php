@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SkemaStoreRequest extends FormRequest
+class FasilitasStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class SkemaStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"  => "required|unique:skemas|regex:/^\S*$/u",
+            "name"      => "required|unique:fasilitas|regex:/^\S*$/u",
         ];
     }
 }

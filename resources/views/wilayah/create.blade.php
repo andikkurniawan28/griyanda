@@ -1,11 +1,11 @@
 @extends("layouts.app_form")
 
 @section("title")
-    {{ ucfirst("pemilik") }}
+    {{ ucfirst("wilayah") }}
 @endsection
 
 @section("index")
-    {{ route("pemilik.index") }}
+    {{ route("wilayah.index") }}
 @endsection
 
 @section("breadcrumb")
@@ -13,10 +13,10 @@
 @endsection
 
 @section("form")
-    <form action="{{ route("pemilik.store") }}" method="POST">
+    <form action="{{ route("wilayah.store") }}" method="POST">
         @csrf @method("POST")
+        <x-select1 name="area_id" title="area" :data="$env['area']" item="name"></x-select1>
         <x-input1 name="name" type="text" value="" placeholder="Enter name ..." modifier="required autofocus"></x-input1>
-        <x-input1 name="whatsapp" type="text" value="" placeholder="Enter whatsapp ..." modifier="required"></x-input1>
         <x-submit></x-submit>
     </form>
 @endsection

@@ -12,7 +12,10 @@
                 <x-sidebar_item icon="filter" route="{{ route('tipe.index') }}" title="tipe"></x-sidebar_item>
                 <x-sidebar_item icon="dollar-sign" route="{{ route('skema.index') }}" title="skema"></x-sidebar_item>
                 <x-sidebar_item icon="map" route="{{ route('area.index') }}" title="area"></x-sidebar_item>
-                <x-sidebar_item icon="home" route="{{ route('pemilik.index') }}" title="pemilik"></x-sidebar_item>
+                <x-sidebar_item icon="map" route="{{ route('wilayah.index') }}" title="wilayah"></x-sidebar_item>
+                <x-sidebar_item icon="handshake" route="{{ route('pemilik.index') }}" title="pemilik"></x-sidebar_item>
+                <x-sidebar_item icon="desktop" route="{{ route('fasilitas.index') }}" title="fasilitas"></x-sidebar_item>
+                <x-sidebar_item icon="home" route="{{ route('unit.index') }}" title="unit"></x-sidebar_item>
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

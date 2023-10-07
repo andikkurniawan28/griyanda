@@ -24,7 +24,8 @@ class PemilikStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"  => "required|unique:pemiliks",
+            "name"      => "required|unique:pemiliks",
+            "whatsapp"  => "required|unique:pemiliks",
         ];
     }
 }

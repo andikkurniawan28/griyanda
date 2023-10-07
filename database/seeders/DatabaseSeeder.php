@@ -42,11 +42,11 @@ class DatabaseSeeder extends Seeder
         ];
 
         $skema = [
-            ["name" => ucfirst("per_jam")],
-            ["name" => ucfirst("harian")],
-            ["name" => ucfirst("mingguan")],
-            ["name" => ucfirst("bulanan")],
-            ["name" => ucfirst("tahunan")],
+            ["name" => "per_jam"],
+            ["name" => "harian"],
+            ["name" => "mingguan"],
+            ["name" => "bulanan"],
+            ["name" => "tahunan"],
         ];
 
         $area = [
@@ -55,21 +55,19 @@ class DatabaseSeeder extends Seeder
             ["name" => ucfirst("kota Batu")],
         ];
 
-        // $wilayah = [];
-
         $fasilitas = [
-            ["name" => ucfirst("kamar")],
-            ["name" => ucfirst("kamar_mandi")],
-            ["name" => ucfirst("dapur")],
-            ["name" => ucfirst("akses_mobil")],
-            ["name" => ucfirst("carport")],
-            ["name" => ucfirst("pagar")],
-            ["name" => ucfirst("lemari")],
-            ["name" => ucfirst("kipas_angin")],
-            ["name" => ucfirst("AC")],
-            ["name" => ucfirst("TV")],
-            ["name" => ucfirst("karaoke")],
-            ["name" => ucfirst("BBQ")],
+            ["name" => "kamar"],
+            ["name" => "kamar_mandi"],
+            ["name" => "dapur"],
+            ["name" => "akses_mobil"],
+            ["name" => "carport"],
+            ["name" => "pagar"],
+            ["name" => "lemari"],
+            ["name" => "kipas_angin"],
+            ["name" => "AC"],
+            ["name" => "TV"],
+            ["name" => "karaoke"],
+            ["name" => "BBQ"],
         ];
 
         Role::insert($role);

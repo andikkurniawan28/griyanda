@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Wilayah extends Model
+class Unit extends Model
 {
     use HasFactory;
 
@@ -13,5 +13,9 @@ class Wilayah extends Model
 
     public function area(){
         return $this->belongsTo(Area::class);
+    }
+
+    public function pemilik(){
+        return $this->belongsTo(Pemilik::class);
     }
 }

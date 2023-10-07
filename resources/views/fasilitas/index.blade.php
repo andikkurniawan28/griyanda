@@ -1,7 +1,7 @@
 @extends("layouts.app_table")
 
 @section("title")
-    {{ ucfirst("pemilik") }}
+    {{ ucfirst("fasilitas") }}
 @endsection
 
 @section("breadcrumb")
@@ -9,7 +9,7 @@
 @endsection
 
 @section("create")
-    {{ route("pemilik.create") }}
+    {{ route("fasilitas.create") }}
 @endsection
 
 @section("table")
@@ -19,7 +19,6 @@
                 <th>{{ strtoupper("id") }}</th>
                 <th>{{ ucfirst("timestamp") }}</th>
                 <th>{{ ucfirst("name") }}</th>
-                <th>{{ ucfirst("whatsapp") }}</th>
                 <th>{{ ucfirst("action") }}</th>
             </tr>
         </thead>
@@ -29,12 +28,11 @@
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>{{ $data->name }}</td>
-                <td>{{ $data->whatsapp }}</td>
                 <td>
                     @include("components.action_group_button", [
-                        "show"      => route("pemilik.show", $data->id),
-                        "edit"      => route("pemilik.edit", $data->id),
-                        "delete"    => route("pemilik.destroy", $data->id),
+                        "show"      => route("fasilitas.show", $data->id),
+                        "edit"      => route("fasilitas.edit", $data->id),
+                        "delete"    => route("fasilitas.destroy", $data->id),
                     ])
                 </td>
             </tr>

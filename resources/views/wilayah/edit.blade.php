@@ -1,11 +1,11 @@
 @extends("layouts.app_form")
 
 @section("title")
-    {{ ucfirst("pemilik") }}
+    {{ ucfirst("wilayah") }}
 @endsection
 
 @section("index")
-    {{ route("pemilik.index") }}
+    {{ route("wilayah.index") }}
 @endsection
 
 @section("breadcrumb")
@@ -13,10 +13,10 @@
 @endsection
 
 @section("form")
-    <form action="{{ route("pemilik.update", $data->id) }}" method="POST">
+    <form action="{{ route("wilayah.update", $data->id) }}" method="POST">
         @csrf @method("PUT")
+        <x-select2 name="area_id" title="area" item="name" :data="$env['area']" :feed="$data->area_id"></x-select2>
         <x-input1 name="name" type="text" value="{{ $data->name }}" placeholder="Enter name ..." modifier="required autofocus"></x-input1>
-        <x-input1 name="whatsapp" type="text" value="{{ $data->whatsapp }}" placeholder="Enter whatsapp ..." modifier="required"></x-input1>
         <x-submit></x-submit>
     </form>
 @endsection

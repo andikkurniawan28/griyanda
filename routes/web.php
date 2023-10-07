@@ -5,6 +5,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TipeController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SkemaController;
 use App\Http\Controllers\PemilikController;
@@ -32,10 +33,7 @@ Route::post("register", [AuthController::class, "registerProcess"])->name("regis
 Route::post("changePassword", [AuthController::class, "changePasswordProcess"])->name("changePassword.process");
 Route::get("logout", [AuthController::class, "logout"])->name("logout");
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get("dashboard", DashboardController::class)->name("dashboard")->middleware(["auth"]);
+Route::get("", DashboardController::class)->name("dashboard")->middleware(["auth"]);
 
 Route::resource("user", UserController::class)->middleware(["auth"]);
 Route::resource("role", RoleController::class)->middleware(["auth"]);
@@ -45,3 +43,4 @@ Route::resource("area", AreaController::class)->middleware(["auth"]);
 Route::resource("wilayah", WilayahController::class)->middleware(["auth"]);
 Route::resource("pemilik", PemilikController::class)->middleware(["auth"]);
 Route::resource("fasilitas", FasilitasController::class)->middleware(["auth"]);
+Route::resource("unit", UnitController::class)->middleware(["auth"]);
