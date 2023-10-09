@@ -15,6 +15,7 @@
 @section("form")
     <form action="{{ route("unit.update", $data->id) }}" method="POST">
         @csrf @method("PUT")
+        <x-select2 name="tipe_id" title="tipe" item="name" :data="$env['tipe']" :feed="$data->tipe_id"></x-select2>
         <x-select2 name="area_id" title="area" item="name" :data="$env['area']" :feed="$data->area_id"></x-select2>
         <x-select2 name="pemilik_id" title="pemilik" item="name" :data="$env['pemilik']" :feed="$data->pemilik_id"></x-select2>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Env;
+use App\Models\Unit;
 use App\Models\Skema;
 use App\Models\Activity;
 use Illuminate\Http\Request;
@@ -43,6 +44,7 @@ class SkemaController extends Controller
     {
         Skema::create($request->all());
         Activity::membuat("skema", $request->name);
+        Unit::addColumn($request);
         return redirect()->back()->with("success", "Skema berhasil disimpan");
     }
 
@@ -94,8 +96,10 @@ class SkemaController extends Controller
      */
     public function destroy($id)
     {
+        $name = Skema::whereId($id)->get()->last()->name;
         Activity::menghapus("skema", "name", "skemas", $id);
         Skema::whereId($id)->delete();
+        Unit::dropColumn($name);
         return redirect()->route("skema.index")->with("success", "Skema berhasil dihapus");
     }
 }

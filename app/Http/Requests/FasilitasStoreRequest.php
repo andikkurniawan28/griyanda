@@ -25,6 +25,7 @@ class FasilitasStoreRequest extends FormRequest
     {
         return [
             "name"      => "required|unique:fasilitas|regex:/^\S*$/u",
+            "icon"      => "required|unique:fasilitas",
         ];
     }
 }

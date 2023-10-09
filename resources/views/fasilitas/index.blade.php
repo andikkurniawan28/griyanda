@@ -19,6 +19,7 @@
                 <th>{{ strtoupper("id") }}</th>
                 <th>{{ ucfirst("timestamp") }}</th>
                 <th>{{ ucfirst("name") }}</th>
+                <th>{{ ucfirst("icon") }}</th>
                 <th>{{ ucfirst("action") }}</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>{{ $data->name }}</td>
+                <td><i class="{{ $data->icon }}"></i></td>
                 <td>
                     @include("components.action_group_button", [
                         "show"      => route("fasilitas.show", $data->id),

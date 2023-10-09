@@ -15,8 +15,11 @@
 @section("form")
     <form action="{{ route("unit.store") }}" method="POST">
         @csrf @method("POST")
-        @csrf @method("POST")
+
+        <x-select1 name="tipe_id" title="tipe" :data="$env['tipe']" item="name"></x-select1>
+
         <x-select1 name="area_id" title="area" :data="$env['area']" item="name"></x-select1>
+
         <x-select1 name="pemilik_id" title="pemilik" :data="$env['pemilik']" item="name"></x-select1>
 
         <x-input1 name="name" type="text" value="" placeholder="Enter name ..." modifier="required autofocus"></x-input1>

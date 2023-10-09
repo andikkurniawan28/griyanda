@@ -19,6 +19,7 @@
                 <th>{{ strtoupper("id") }}</th>
                 <th>{{ ucfirst("timestamp") }}</th>
                 <th>{{ ucfirst("name") }}</th>
+                <th>{{ ucfirst("tipe") }}</th>
                 <th>{{ ucfirst("area") }}</th>
                 <th>{{ ucfirst("pemilik") }}</th>
                 <th>{{ ucfirst("skema") }}</th>
@@ -32,6 +33,7 @@
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>{{ $data->name }}</td>
+                <td>{{ $data->tipe->name }}</td>
                 <td>{{ $data->area->name }}</td>
                 <td>{{ $data->pemilik->name }}</td>
                 <td>

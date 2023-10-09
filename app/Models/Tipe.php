@@ -10,4 +10,8 @@ class Tipe extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function unit(){
+        return $this->hasMany(Unit::class);
+    }
 }

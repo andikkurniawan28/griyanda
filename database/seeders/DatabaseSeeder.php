@@ -56,18 +56,19 @@ class DatabaseSeeder extends Seeder
         ];
 
         $fasilitas = [
-            ["name" => "kamar"],
-            ["name" => "kamar_mandi"],
-            ["name" => "dapur"],
-            ["name" => "akses_mobil"],
-            ["name" => "carport"],
-            ["name" => "pagar"],
-            ["name" => "lemari"],
-            ["name" => "kipas_angin"],
-            ["name" => "AC"],
-            ["name" => "TV"],
-            ["name" => "karaoke"],
-            ["name" => "BBQ"],
+            ["name" => "luas_bangunan", "icon" => "fa fa-ruler-combined text-primary me-2"],
+            ["name" => "kamar",         "icon" => "fa fa-bed text-primary me-2"],
+            ["name" => "kamar_mandi",   "icon" => "fa fa-bath text-primary me-2"],
+            ["name" => "dapur",         "icon" => "fa fa-utensils text-primary me-2"],
+            ["name" => "akses_mobil",   "icon" => "fa fa-road text-primary me-2"],
+            ["name" => "carport",       "icon" => "fa fa-car text-primary me-2"],
+            ["name" => "pagar",         "icon" => "fa fa-grip-lines-vertical text-primary me-2"],
+            ["name" => "lemari",        "icon" => "fa fa-box text-primary me-2"],
+            ["name" => "kipas_angin",   "icon" => "fa fa-fan text-primary me-2"],
+            ["name" => "AC",            "icon" => "fa fa-wind text-primary me-2"],
+            ["name" => "TV",            "icon" => "fa fa-tv text-primary me-2"],
+            ["name" => "karaoke",       "icon" => "fa fa-music text-primary me-2"],
+            ["name" => "BBQ",           "icon" => "fa fa-fire text-primary me-2"],
         ];
 
         Role::insert($role);

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("tipe_id")->constrained();
             $table->foreignId("area_id")->constrained();
             $table->foreignId("pemilik_id")->constrained();
             $table->integer("per_jam")->nullable();
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->integer("mingguan")->nullable();
             $table->integer("bulanan")->nullable();
             $table->integer("tahunan")->nullable();
+            $table->integer("luas_bangunan")->nullable();
             $table->integer("kamar")->nullable();
             $table->integer("kamar_mandi")->nullable();
             $table->integer("dapur")->nullable();

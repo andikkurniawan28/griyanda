@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TipeController;
 use App\Http\Controllers\UnitController;
@@ -33,8 +34,8 @@ Route::post("register", [AuthController::class, "registerProcess"])->name("regis
 Route::post("changePassword", [AuthController::class, "changePasswordProcess"])->name("changePassword.process");
 Route::get("logout", [AuthController::class, "logout"])->name("logout");
 
+// Admin
 Route::get("", DashboardController::class)->name("dashboard")->middleware(["auth"]);
-
 Route::resource("user", UserController::class)->middleware(["auth"]);
 Route::resource("role", RoleController::class)->middleware(["auth"]);
 Route::resource("tipe", TipeController::class)->middleware(["auth"]);
@@ -44,3 +45,6 @@ Route::resource("wilayah", WilayahController::class)->middleware(["auth"]);
 Route::resource("pemilik", PemilikController::class)->middleware(["auth"]);
 Route::resource("fasilitas", FasilitasController::class)->middleware(["auth"]);
 Route::resource("unit", UnitController::class)->middleware(["auth"]);
+
+// Customer
+Route::get("home", HomeController::class)->name("home");

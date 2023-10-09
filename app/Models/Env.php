@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Area;
+use App\Models\Tipe;
 use App\Models\Skema;
 use App\Models\Pemilik;
 use App\Models\Fasilitas;
@@ -14,6 +15,7 @@ class Env extends Model
     use HasFactory;
 
     public static function serve(){
+        $data["tipe"] = Tipe::all();
         $data["area"] = Area::all();
         $data["pemilik"] = Pemilik::all();
         $data["skema"] = Skema::all();

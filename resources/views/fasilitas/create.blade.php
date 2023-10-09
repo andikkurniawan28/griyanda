@@ -16,6 +16,7 @@
     <form action="{{ route("fasilitas.store") }}" method="POST">
         @csrf @method("POST")
         <x-input1 name="name" type="text" value="" placeholder="Enter name ..." modifier="required autofocus"></x-input1>
+        <x-input1 name="icon" type="text" value="" placeholder="Enter icon ..." modifier="required"></x-input1>
         <x-submit></x-submit>
     </form>
 @endsection

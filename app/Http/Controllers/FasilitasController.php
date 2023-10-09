@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Env;
-use App\Models\Fasilitas;
+use App\Models\Unit;
 use App\Models\Activity;
+use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 use App\Http\Requests\FasilitasStoreRequest;
 
@@ -43,6 +44,7 @@ class FasilitasController extends Controller
     {
         Fasilitas::create($request->all());
         Activity::membuat("fasilitas", $request->name);
+        Unit::addColumn($request);
         return redirect()->back()->with("success", "Fasilitas berhasil disimpan");
     }
 
@@ -81,7 +83,7 @@ class FasilitasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Activity::mengubah("fasilitas", "name", "fasilitass", $id);
+        Activity::mengubah("fasilitas", "name", "fasilitas", $id);
         Fasilitas::whereId($id)->update($request->except(["_token", "_method"]));
         return redirect()->route("fasilitas.index")->with("success", "Fasilitas berhasil diperbarui");
     }
@@ -94,8 +96,10 @@ class FasilitasController extends Controller
      */
     public function destroy($id)
     {
-        Activity::menghapus("fasilitas", "name", "fasilitass", $id);
+        $name = Fasilitas::whereId($id)->get()->last()->name;
+        Activity::menghapus("fasilitas", "name", "fasilitas", $id);
         Fasilitas::whereId($id)->delete();
+        Unit::dropColumn($name);
         return redirect()->route("fasilitas.index")->with("success", "Fasilitas berhasil dihapus");
     }
 }
